@@ -38,7 +38,7 @@ public class HelloController {
 
 
     /*
-        06/01
+        06/02
 
         1. @RequestParam
             - 외부에서 API로 넘긴 파라미터를 가져오는 어노테이션입니다.

@@ -89,7 +89,7 @@ public class HelloControllerTest {
         // 추가된 API도 테스트 실행 > JSON이 리턴되는 API 역시 정상적으로 테스트가 통과하는 것을 확인할 수 있음.
 
         /*
-               06/01
+               06/02
 
             1. param
                 - API 테스트할 때 사용될 요청 파라미터를 설정합니다.

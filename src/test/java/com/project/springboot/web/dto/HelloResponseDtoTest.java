@@ -22,7 +22,7 @@ public class HelloResponseDtoTest {
         //                   생성자가 자동으로 생성되는 것이 증명됨.
 
     /*
-        06/01
+        06/02
 
         1. assertThat
             - assertj라는 테스트 검증 라이브러리의 검증 메소드입니다.
