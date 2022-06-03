@@ -1,5 +1,6 @@
 package com.project.springboot.domain.posts;
 
+import com.project.springboot.domain.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,7 +9,8 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor
 @Entity
-public class Posts {
+public class Posts extends BaseTimeEntity {
+    //Posts 클래스가 BaseTimeEntity를 상속받음.
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
