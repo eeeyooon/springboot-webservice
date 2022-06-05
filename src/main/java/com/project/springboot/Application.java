@@ -16,7 +16,7 @@ public class Application {
         
         Application 클래스 : 앞으로 만들 프로젝트의 메인 클래스
         
-         - @SpringBootApplication으로 인해 스플이 부트의 자동 설정, 스프링 Bean 읽기와 생성을 자동으로 설정함.
+         - @SpringBootApplication으로 인해 스프링 부트의 자동 설정, 스프링 Bean 읽기와 생성을 자동으로 설정함.
            특히나 @SpringBootApplication이 있는 위치부터 설정을 읽어가기 때문에 이 클래스는 항상 프로젝트의 최상단에 위치해야 함.
             
          - main 메소드에서 실행하는 SpringApplication.run으로 인해 내장 WAS를 실행함.
