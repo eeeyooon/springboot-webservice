@@ -2,6 +2,7 @@ package com.project.springboot.service.posts;
 
 import com.project.springboot.domain.posts.Posts;
 import com.project.springboot.domain.posts.PostsRepository;
+import com.project.springboot.web.dto.PostsListResponseDto;
 import com.project.springboot.web.dto.PostsResponseDto;
 import com.project.springboot.web.dto.PostsSaveRequestDto;
 import com.project.springboot.web.dto.PostsUpdateRequestDto;
@@ -9,6 +10,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 
 @RequiredArgsConstructor
@@ -27,6 +31,21 @@ public class PostsService {
         posts.update(requestDto.getTitle(), requestDto.getContent());
 
         return id;
+    }
+
+    @Transactional
+    public void delete (Long id) {
+        Posts posts = postsRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("해당 사용자가 없습니다. id=" + id));
+
+        postsRepository.delete(posts);
+    }
+
+    @Transactional(readOnly = true)
+    public List<PostsListResponseDto> findAllDesc() {
+        return postsRepository.findAllDESC().stream()
+                .map(PostsListResponseDto::new)
+                .collect(Collectors.toList());
     }
 
     public PostsResponseDto findById (Long id) {
