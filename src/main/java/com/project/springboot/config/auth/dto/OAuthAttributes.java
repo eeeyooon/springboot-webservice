@@ -8,6 +8,11 @@ import lombok.Getter;
 
 import java.util.Map;
 
+
+//Dto로 보기때문에 config.auth.dto 패캐지를 만들어서 생성함.
+// - OAuth2UserSevice를 통해 가져온 OAuth2User의 attribute를 담은 클래스임.
+// - 이후 네이버 등 다른 소셜 로그인도 이 클래스를 사용함.
+
 @Getter
 public class OAuthAttributes {
     private Map<String, Object> attributes;
@@ -47,5 +52,16 @@ public class OAuthAttributes {
                 .role(Role.GUEST)
                 .build();
     }
+
+    /*
+        06/09
+        1. of()
+            - OAuth2User에서 반환하는 사용자 정보는 Map이기 때문에 값 하나하나를 변환해야만 함.
+        2. toEntity()
+            - User 엔티티를 생성함.
+            - OAuthAttributes에서 엔티티를 생성하는 시점은 처음 가입할 때.
+            - 가입할 때의 기본 권한을 GUEST로 주기 위해서 role 빌더값에는 Role.GUEST를 사용함.
+            - OAuthAttributes 클래스 생성이 끝났으면 같은 패키지에 SessionUser 클래스를 생성함.
+     */
 
 }
